@@ -1,0 +1,44 @@
+module hello {
+  namespace "urn:ietf:params:xml:ns:yang:hello";
+  prefix ob;
+
+  description
+    "hello world";
+  contact
+    "mislav.novakovic@sartura.hr";
+
+  revision 2015-06-08 {
+    description
+      "Inital revision";
+  }
+
+  container hello {
+    leaf foo {
+      type string;
+    }
+    leaf bar {
+      type int32;
+    }
+    leaf toto {
+      type string;
+    }
+    leaf number {
+      type int32;
+    }
+    leaf number8 {
+      type int8;
+    }
+    list person {
+      key "name name2";
+      leaf "name" {
+        type "string";
+      }
+      leaf "name2" {
+        type "string";
+      }
+      leaf "age" {
+        type "int32";
+      }
+    }
+  }
+}

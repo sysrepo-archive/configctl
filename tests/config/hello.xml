@@ -1,0 +1,16 @@
+<libyang>
+  <hello xmlns="urn:ietf:params:xml:ns:yang:hello">
+    <foo>text</foo>
+    <bar>1234</bar>
+    <person>
+      <name>foo</name>
+      <name2>foo2</name2>
+      <age>20</age>
+    </person>
+    <person>
+      <name>bar</name>
+      <name2>bar2</name2>
+      <age>25</age>
+    </person>
+  </hello>
+</libyang>
