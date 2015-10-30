@@ -1,0 +1,12 @@
+Source: configctl
+Section: devel
+Priority: optional
+Maintainer: Luka Perkov <luka.perkov@sartura.hr>
+Build-Depends: debhelper (>= 8.0.0), cmake, libyang-dev
+Standards-Version: 0.0.1
+Homepage: https://github.com/sysrepo/configctl
+
+Package: configctl-dev
+Architecture: amd64 i386 armhf
+Depends: libyang-dev
+Description: configctl library and utility
