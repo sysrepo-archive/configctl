@@ -66,18 +66,29 @@ static int teardown_f()
 static void test_get_leaf_foo_string()
 {
 	const char *result = configctl_get_string(ctx, "hello/foo");
+	if (!result)
+		fail();
+
 	assert_string_equal("text", result);
 }
 
 static void test_get_leaf_bar_string()
 {
 	const char *result = configctl_get_string(ctx, "hello/bar");
+	if (!result)
+		fail();
+
 	assert_string_equal("1234", result);
 }
 
 static void test_get_leaf_bar_int()
 {
-	int32_t result = configctl_get_int32(ctx, "hello/bar");
+	int rc;
+	int32_t result;
+	rc = configctl_get_int32(ctx, "hello/bar", &result);
+	if (rc)
+		fail();
+
 	assert_int_equal(1234, result);
 }
 

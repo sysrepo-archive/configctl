@@ -50,14 +50,14 @@ int configctl_destroy(struct configctl *ctx);
 int configctl_validate(struct configctl *ctx, char *config);
 
 const char *configctl_get_string(struct configctl *ctx, char *path);
-int8_t	    configctl_get_int8  (struct configctl *ctx, char *path);
-int16_t     configctl_get_int16 (struct configctl *ctx, char *path);
-int32_t     configctl_get_int32 (struct configctl *ctx, char *path);
-int64_t     configctl_get_int64 (struct configctl *ctx, char *path);
-uint8_t     configctl_get_uint8 (struct configctl *ctx, char *path);
-uint16_t    configctl_get_uint16(struct configctl *ctx, char *path);
-uint32_t    configctl_get_uint32(struct configctl *ctx, char *path);
-uint64_t    configctl_get_uint64(struct configctl *ctx, char *path);
+int configctl_get_int8  (struct configctl *ctx, char *path, int8_t     *value);
+int configctl_get_int16 (struct configctl *ctx, char *path, int16_t    *value);
+int configctl_get_int32 (struct configctl *ctx, char *path, int32_t    *value);
+int configctl_get_int64 (struct configctl *ctx, char *path, int64_t    *value);
+int configctl_get_uint8 (struct configctl *ctx, char *path, uint8_t    *value);
+int configctl_get_uint16(struct configctl *ctx, char *path, uint16_t   *value);
+int configctl_get_uint32(struct configctl *ctx, char *path, uint32_t   *value);
+int configctl_get_uint64(struct configctl *ctx, char *path, uint64_t   *value);
 
 int configctl_set_string(struct configctl *ctx, const char *location, const char *value);
 int configctl_set_int8  (struct configctl *ctx, const char *location, int8_t      value);

@@ -66,54 +66,80 @@ static int teardown_f()
 
 static void test_set_leaf_toto_string()
 {
-	int rc = configctl_set_string(ctx, "hello/toto" , "text");
+	int rc;
+
+	rc = configctl_set_string(ctx, "hello/toto" , "text");
 	if (rc)
 		fail();
 
 	const char *result = configctl_get_string(ctx, "hello/toto");
+	if (!result)
+		fail();
+
 	assert_string_equal("text", result);
 }
 
 static void test_set_leaf_number_int()
 {
-	int rc = configctl_set_int32(ctx, "hello/number" , 1234);
+	int rc;
+
+	rc = configctl_set_int32(ctx, "hello/number" , 1234);
 	if (rc)
 		fail();
 
-	int32_t result = configctl_get_int32(ctx, "hello/number");
+	int32_t result;
+	rc = configctl_get_int32(ctx, "hello/number", &result);
+	if (rc)
+		fail();
+
 	assert_int_equal(1234, result);
 }
 
 static void test_set_existing_leaf_foo_string()
 {
-	int rc = configctl_set_string(ctx, "hello/foo" , "new_text");
+	int rc;
+
+	rc = configctl_set_string(ctx, "hello/foo" , "new_text");
 	if (rc)
 		fail();
 
 	const char *result = configctl_get_string(ctx, "hello/foo");
+	if (!result)
+		fail();
+
 	assert_string_equal("new_text", result);
 }
 
 static void test_set_existing_bar_int()
 {
-	int rc = configctl_set_int32(ctx, "hello/bar" , 123456);
+	int rc;
+
+	rc = configctl_set_int32(ctx, "hello/bar" , 123456);
 	if (rc)
 		fail();
 
-	int32_t result = configctl_get_int32(ctx, "hello/bar");
+	int32_t result;
+	rc = configctl_get_int32(ctx, "hello/bar", &result);
+	if (rc)
+		fail();
+
 	assert_int_equal(123456, result);
 }
 
 
 static void test_set_leaf_number8_int()
 {
-	int rc = 0;
+	int rc;
 
 	rc = configctl_set_int8(ctx, "hello/number8" , 12);
 	if (rc)
 		fail();
 
-	int8_t result = configctl_get_int8(ctx, "hello/number8");
+	int8_t result;
+	rc = configctl_get_int8(ctx, "hello/number8", &result);
+	if (rc)
+		fail();
+
 	assert_int_equal(12, result);
 }
 

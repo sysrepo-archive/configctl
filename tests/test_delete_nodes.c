@@ -66,8 +66,9 @@ static int teardown_f()
 
 static void test_del_leaf_toto_string()
 {
+	int rc;
 
-	int rc = configctl_set_string(ctx, "hello/toto" , "text");
+	rc = configctl_set_string(ctx, "hello/toto" , "text");
 	if (rc)
 		fail();
 
@@ -80,15 +81,16 @@ static void test_del_leaf_toto_string()
 
 static void test_del_leaf_number_int()
 {
-
-	int rc = configctl_set_int32(ctx, "hello/number" , 1234);
+	int rc;
+	rc = configctl_set_int32(ctx, "hello/number" , 1234);
 	if (rc)
 		fail();
 
 	rc = configctl_delete_element(ctx, "hello/number");
 
-	int32_t result = configctl_get_int32(ctx, "hello/number");
-	if (result)
+	int32_t result;
+	rc = configctl_get_int32(ctx, "hello/number", &result);
+	if (!rc)
 		fail();
 }
 

@@ -34,116 +34,132 @@
 #include "git.h"
 #include "internal.h"
 
-int8_t configctl_get_int8(struct configctl *ctx, char *path)
+int configctl_get_int8(struct configctl *ctx, char *path, int8_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
 
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
-		return NULL;
+		return -1;
 
-	if (result->value_type == LY_TYPE_INT8)
-		return result->value.int8;
+	if (result->value_type == LY_TYPE_INT8) {
+		*value = result->value.int8;
+		return 0;
+	}
 
-	return NULL;
+	return -1;
 }
 
-int16_t configctl_get_int16(struct configctl *ctx, char *path)
+int configctl_get_int16(struct configctl *ctx, char *path, int16_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
 
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
-		return NULL;
+		return -1;
 
-	if (result->value_type == LY_TYPE_INT16)
-		return result->value.int16;
+	if (result->value_type == LY_TYPE_INT16) {
+		*value = result->value.int16;
+		return 0;
+	}
 
-	return NULL;
+	return -1;
 }
 
-int32_t configctl_get_int32(struct configctl *ctx, char *path)
+int configctl_get_int32(struct configctl *ctx, char *path, int32_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
 
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
-		return NULL;
+		return -1;
 
-	if (result->value_type == LY_TYPE_INT32)
-		return result->value.int32;
+	if (result->value_type == LY_TYPE_INT32) {
+		*value = result->value.int32;
+		return 0;
+	}
 
-	return NULL;
+	return -1;
 }
 
-int64_t configctl_get_int64(struct configctl *ctx, char *path)
+int configctl_get_int64(struct configctl *ctx, char *path, int64_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
 
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
-		return NULL;
+		return -1;
 
-	if (result->value_type == LY_TYPE_INT64)
-		return result->value.int64;
+	if (result->value_type == LY_TYPE_INT64) {
+		*value = result->value.int64;
+		return 0;
+	}
 
-	return NULL;
+	return -1;
 }
 
-uint8_t configctl_get_uint8(struct configctl *ctx, char *path)
+int configctl_get_uint8(struct configctl *ctx, char *path, uint8_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
 
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
-		return NULL;
+		return -1;
 
-	if (result->value_type == LY_TYPE_UINT8)
-		return result->value.uint8;
+	if (result->value_type == LY_TYPE_UINT8) {
+		*value = result->value.uint8;
+		return 0;
+	}
 
-	return NULL;
+	return -1;
 }
 
-uint16_t configctl_get_uint16(struct configctl *ctx, char *path)
+int configctl_get_uint16(struct configctl *ctx, char *path, uint16_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
 
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
-		return NULL;
+		return -1;
 
-	if (result->value_type == LY_TYPE_UINT16)
-		return result->value.uint16;
+	if (result->value_type == LY_TYPE_UINT16) {
+		*value = result->value.uint16;
+		return 0;
+	}
 
-	return NULL;
+	return -1;
 }
 
-uint32_t configctl_get_uint32(struct configctl *ctx, char *path)
+int configctl_get_uint32(struct configctl *ctx, char *path, uint32_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
 
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
-		return NULL;
+		return -1;
 
-	if (result->value_type == LY_TYPE_UINT32)
-		return result->value.uint32;
+	if (result->value_type == LY_TYPE_UINT32) {
+		*value = result->value.uint32;
+		return 0;
+	}
 
-	return NULL;
+	return -1;
 }
 
-uint64_t configctl_get_uint64(struct configctl *ctx, char *path)
+int configctl_get_uint64(struct configctl *ctx, char *path, uint64_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
 
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
-		return NULL;
+		return -1;
 
-	if (result->value_type == LY_TYPE_UINT64)
-		return result->value.uint64;
+	if (result->value_type == LY_TYPE_UINT64) {
+		*value = result->value.uint64;
+		return 0;
+	}
 
-	return NULL;
+	return -1;
 }
 
 int configctl_set_int8(struct configctl *ctx, const char *location, int8_t value)

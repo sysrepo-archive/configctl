@@ -67,18 +67,29 @@ static int teardown_f()
 static void test_get_list_leaf_name()
 {
 	const char *result = configctl_get_string(ctx, "hello/person/foo/foo2/name");
+	if (!result)
+		fail();
+
 	assert_string_equal("foo", result);
 }
 
 static void test_get_list_leaf_age()
 {
-	int32_t result = configctl_get_int32(ctx, "hello/person/foo/foo2/age");
+	int32_t result;
+	int rc;
+
+	rc = configctl_get_int32(ctx, "hello/person/foo/foo2/age", &result);
+	if (rc)
+		fail();
+
 	assert_int_equal(20, result);
 }
 
 static void test_del_list_leaf_element()
 {
-	int rc = configctl_delete_element(ctx, "hello/person/foo/foo2/name");
+	int rc;
+
+	rc = configctl_delete_element(ctx, "hello/person/foo/foo2/name");
 	if (rc)
 		fail();
 
@@ -86,7 +97,6 @@ static void test_del_list_leaf_element()
 	if (result)
 		fail();
 }
-
 
 int main(void)
 {
