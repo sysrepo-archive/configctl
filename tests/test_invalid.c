@@ -100,15 +100,6 @@ static void test_invalid_string()
 		fail();
 }
 
-/* TODO fix memory leak when creating string node in number node
-static void test_invalid_string_todo()
-{
-	int rc = configctl_set_string(ctx, "hello/number8" , "12");
-	if (!rc)
-		fail();
-}
-*/
-
 int main(void)
 {
 	const struct CMUnitTest tests[] = {
@@ -117,7 +108,6 @@ int main(void)
 		cmocka_unit_test_setup_teardown(test_invalid_number_32, setup_f, teardown_f),
 		cmocka_unit_test_setup_teardown(test_invalid_number_64, setup_f, teardown_f),
 		cmocka_unit_test_setup_teardown(test_invalid_string, setup_f, teardown_f),
-		//cmocka_unit_test_setup_teardown(test_invalid_string_todo, setup_f, teardown_f),
 	};
 	return cmocka_run_group_tests(tests, NULL, NULL);
 }
