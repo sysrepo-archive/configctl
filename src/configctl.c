@@ -298,6 +298,9 @@ int configctl_delete_element(struct configctl *ctx, const char *path)
 {
 	struct lyd_node *node = NULL;
 
+	if (check(ctx))
+		return -1;
+
 	node = get_node(ctx->root, (char *) path);
 	if (!node)
 		return -1;
