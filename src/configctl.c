@@ -392,9 +392,9 @@ int configctl_init(struct configctl *ctx, char *config_file, char *yang_file, ch
 
 error:
 
-	if (!schema)
+	if (schema)
 		munmap(schema, sb.st_size);
-	if (!config)
+	if (config)
 		munmap(config, sb.st_size);
 
 	if (fd != -1)
