@@ -38,10 +38,12 @@
 
 int check(struct configctl *ctx)
 {
-	if (ctx)
+	if (!ctx)
 		return -1;
-	if (ctx->root)
+	if (!ctx->root)
 		return -2;
+	if (!ctx->libyang)
+		return -3;
 
 	return 0;
 }
@@ -123,6 +125,9 @@ int configctl_set_leaf(struct configctl *ctx, const char *location, LY_DATA_TYPE
 	char path[strlen(location)];
 	int len = 0;
 
+	if (check(ctx))
+		return -1;
+
 	// TODO preserve data order
 	node = get_node(ctx->root, (char *) location);
 	if (node)
@@ -139,9 +144,6 @@ int configctl_set_leaf(struct configctl *ctx, const char *location, LY_DATA_TYPE
 
 	snprintf(path, len, "%s", location);
 	name = (char *) (location + len);
-
-	if (!check(ctx))
-		return -1;
 
 	node = get_node(ctx->root, &path[0]);
 	if (!node)

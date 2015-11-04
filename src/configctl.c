@@ -394,8 +394,8 @@ int configctl_commit(struct configctl *ctx)
 {
 	FILE *fp;
 
-	if (!check(ctx))
-		return NULL;
+	if (check(ctx))
+		return -1;
 
 	fp = fopen(ctx->config_file, "w");
 
@@ -414,7 +414,7 @@ const char *configctl_get_string(struct configctl *ctx, char *path)
 {
 	struct lyd_node_leaf_list *result = NULL;
 
-	if (!check(ctx))
+	if (check(ctx))
 		return NULL;
 
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
