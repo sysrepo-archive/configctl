@@ -75,6 +75,10 @@ struct lyd_node *get_node(struct lyd_node *node, char *path)
 				char *pch_list = NULL;
 				char name_list[strlen(list)];
 				pch_list = strchr((list), '/');
+
+				if (!list || !pch_list)
+					continue;
+
 				snprintf(name_list, (strlen(list) - strlen(pch_list) + 1), "%s", list);
 
 				if (!strcmp(((struct lyd_node_leaf_list *) tmp->child)->value_str, name_list)) {
