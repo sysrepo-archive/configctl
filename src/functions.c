@@ -93,7 +93,7 @@ struct lyd_node *get_node(struct lyd_node *node, char *path)
 
 int configctl_validate(struct configctl *ctx, char *config)
 {
-	if (!config)
+	if (!ctx || !config)
 		return -1;
 
 	if (!ctx->model)

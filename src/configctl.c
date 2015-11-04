@@ -38,6 +38,9 @@ int configctl_get_int8(struct configctl *ctx, char *path, int8_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
 
+	if (check(ctx))
+		return -1;
+
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
 		return -1;
@@ -53,6 +56,9 @@ int configctl_get_int8(struct configctl *ctx, char *path, int8_t *value)
 int configctl_get_int16(struct configctl *ctx, char *path, int16_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
+
+	if (check(ctx))
+		return -1;
 
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
@@ -70,6 +76,9 @@ int configctl_get_int32(struct configctl *ctx, char *path, int32_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
 
+	if (check(ctx))
+		return -1;
+
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
 		return -1;
@@ -85,6 +94,9 @@ int configctl_get_int32(struct configctl *ctx, char *path, int32_t *value)
 int configctl_get_int64(struct configctl *ctx, char *path, int64_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
+
+	if (check(ctx))
+		return -1;
 
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
@@ -102,6 +114,9 @@ int configctl_get_uint8(struct configctl *ctx, char *path, uint8_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
 
+	if (check(ctx))
+		return -1;
+
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
 		return -1;
@@ -117,6 +132,9 @@ int configctl_get_uint8(struct configctl *ctx, char *path, uint8_t *value)
 int configctl_get_uint16(struct configctl *ctx, char *path, uint16_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
+
+	if (check(ctx))
+		return -1;
 
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
@@ -134,6 +152,9 @@ int configctl_get_uint32(struct configctl *ctx, char *path, uint32_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
 
+	if (check(ctx))
+		return -1;
+
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
 		return -1;
@@ -149,6 +170,9 @@ int configctl_get_uint32(struct configctl *ctx, char *path, uint32_t *value)
 int configctl_get_uint64(struct configctl *ctx, char *path, uint64_t *value)
 {
 	struct lyd_node_leaf_list *result = NULL;
+
+	if (check(ctx))
+		return -1;
 
 	result = (struct lyd_node_leaf_list *) get_node(ctx->root, path);
 	if (!result)
