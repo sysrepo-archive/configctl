@@ -43,5 +43,55 @@
         <type name="int32"/>
       </leaf>
     </list>
+    <container name="numbers">
+      <leaf name="number_8">
+        <type name="int8"/>
+      </leaf>
+      <leaf name="number_16">
+        <type name="int16"/>
+      </leaf>
+      <leaf name="number_32">
+        <type name="int32"/>
+      </leaf>
+      <leaf name="number_64">
+        <type name="int64"/>
+      </leaf>
+      <leaf name="number_u8">
+        <type name="uint8"/>
+      </leaf>
+      <leaf name="number_u16">
+        <type name="uint16"/>
+      </leaf>
+      <leaf name="number_u32">
+        <type name="uint32"/>
+      </leaf>
+      <leaf name="number_u64">
+        <type name="uint64"/>
+      </leaf>
+      <leaf name="new_number_8">
+        <type name="int8"/>
+      </leaf>
+      <leaf name="new_number_16">
+        <type name="int16"/>
+      </leaf>
+      <leaf name="new_number_32">
+        <type name="int32"/>
+      </leaf>
+      <leaf name="new_number_64">
+        <type name="int64"/>
+      </leaf>
+      <leaf name="new_number_u8">
+        <type name="uint8"/>
+      </leaf>
+      <leaf name="new_number_u16">
+        <type name="uint16"/>
+      </leaf>
+      <leaf name="new_number_u32">
+        <type name="uint32"/>
+      </leaf>
+      <leaf name="new_number_u64">
+        <type name="uint64"/>
+      </leaf>
+    </container>
   </container>
 </module>

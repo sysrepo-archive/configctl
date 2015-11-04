@@ -73,6 +73,8 @@ static void test_del_leaf_toto_string()
 		fail();
 
 	rc = configctl_delete_element(ctx, "hello/toto");
+	if (rc)
+		fail();
 
 	const char *result = configctl_get_string(ctx, "hello/toto");
 	if (result)
@@ -87,6 +89,8 @@ static void test_del_leaf_number_int()
 		fail();
 
 	rc = configctl_delete_element(ctx, "hello/number");
+	if (rc)
+		fail();
 
 	int32_t result;
 	rc = configctl_get_int32(ctx, "hello/number", &result);
@@ -94,11 +98,252 @@ static void test_del_leaf_number_int()
 		fail();
 }
 
+static void test_delete_int_8()
+{
+	int rc;
+	int8_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/number_8");
+	if (rc)
+		fail();
+
+	rc = configctl_get_int8(ctx, "hello/numbers/number_8", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_delete_int_16()
+{
+	int rc;
+	int16_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/number_16");
+	if (rc)
+		fail();
+
+	rc = configctl_get_int16(ctx, "hello/numbers/number_16", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_delete_int_32()
+{
+	int rc;
+	int32_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/number_32");
+	if (rc)
+		fail();
+
+	rc = configctl_get_int32(ctx, "hello/numbers/number_32", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_delete_int_64()
+{
+	int rc;
+	int64_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/number_64");
+	if (rc)
+		fail();
+
+	rc = configctl_get_int64(ctx, "hello/numbers/number_64", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_delete_uint_8()
+{
+	int rc;
+	uint8_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/number_u8");
+	if (rc)
+		fail();
+
+	rc = configctl_get_uint8(ctx, "hello/numbers/number_u8", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_delete_uint_16()
+{
+	int rc;
+	uint16_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/number_u16");
+	if (rc)
+		fail();
+
+	rc = configctl_get_uint16(ctx, "hello/numbers/number_u16", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_delete_uint_32()
+{
+	int rc;
+	uint32_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/number_u32");
+	if (rc)
+		fail();
+
+	rc = configctl_get_uint32(ctx, "hello/numbers/number_u32", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_delete_uint_64()
+{
+	int rc;
+	uint64_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/number_u64");
+	if (rc)
+		fail();
+
+	rc = configctl_get_uint64(ctx, "hello/numbers/number_u64", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_failed_delete_int_8()
+{
+	int rc;
+	int8_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/nuw_number_8");
+	if (!rc)
+		fail();
+
+	rc = configctl_get_int8(ctx, "hello/numbers/new_number_8", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_failed_delete_int_16()
+{
+	int rc;
+	int16_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/nuw_number_16");
+	if (!rc)
+		fail();
+
+	rc = configctl_get_int16(ctx, "hello/numbers/new_number_16", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_failed_delete_int_32()
+{
+	int rc;
+	int32_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/nuw_number_32");
+	if (!rc)
+		fail();
+
+	rc = configctl_get_int32(ctx, "hello/numbers/new_number_32", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_failed_delete_int_64()
+{
+	int rc;
+	int64_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/nuw_number_64");
+	if (!rc)
+		fail();
+
+	rc = configctl_get_int64(ctx, "hello/numbers/new_number_64", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_failed_delete_uint_8()
+{
+	int rc;
+	uint8_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/nuw_number_u8");
+	if (!rc)
+		fail();
+
+	rc = configctl_get_uint8(ctx, "hello/numbers/new_number_u8", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_failed_delete_uint_16()
+{
+	int rc;
+	uint16_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/nuw_number_u16");
+	if (!rc)
+		fail();
+
+	rc = configctl_get_uint16(ctx, "hello/numbers/new_number_u16", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_failed_delete_uint_32()
+{
+	int rc;
+	uint32_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/nuw_number_u32");
+	if (!rc)
+		fail();
+
+	rc = configctl_get_uint32(ctx, "hello/numbers/new_number_u32", &result);
+	if (!rc)
+		fail();
+}
+
+static void test_failed_delete_uint_64()
+{
+	int rc;
+	uint64_t result;
+
+	rc = configctl_delete_element(ctx, "hello/numbers/nuw_number_u64");
+	if (!rc)
+		fail();
+
+	rc = configctl_get_uint64(ctx, "hello/numbers/new_number_u64", &result);
+	if (!rc)
+		fail();
+}
+
+
 int main(void)
 {
 	const struct CMUnitTest tests[] = {
 		cmocka_unit_test_setup_teardown(test_del_leaf_toto_string, setup_f, teardown_f),
 		cmocka_unit_test_setup_teardown(test_del_leaf_number_int, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_delete_int_8, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_delete_int_16, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_delete_int_32, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_delete_int_64, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_delete_uint_8, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_delete_uint_16, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_delete_uint_32, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_delete_uint_64, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_failed_delete_int_8, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_failed_delete_int_16, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_failed_delete_int_32, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_failed_delete_int_64, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_failed_delete_uint_8, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_failed_delete_uint_16, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_failed_delete_uint_32, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_failed_delete_uint_64, setup_f, teardown_f),
 	};
 	return cmocka_run_group_tests(tests, NULL, NULL);
 }

@@ -12,5 +12,15 @@
       <name2>bar2</name2>
       <age>25</age>
     </person>
+    <numbers>
+      <number_8>1</number_8>
+      <number_16>1</number_16>
+      <number_32>1</number_32>
+      <number_64>1</number_64>
+      <number_u8>1</number_u8>
+      <number_u16>1</number_u16>
+      <number_u32>1</number_u32>
+      <number_u64>1</number_u64>
+    </numbers>
   </hello>
 </libyang>

@@ -126,21 +126,260 @@ static void test_set_existing_bar_int()
 	assert_int_equal(123456, result);
 }
 
-
 static void test_set_leaf_number8_int()
 {
 	int rc;
 
+	int8_t result;
 	rc = configctl_set_int8(ctx, "hello/number8" , 12);
 	if (rc)
 		fail();
 
-	int8_t result;
 	rc = configctl_get_int8(ctx, "hello/number8", &result);
 	if (rc)
 		fail();
 
 	assert_int_equal(12, result);
+}
+
+static void test_set_int_8()
+{
+	int rc;
+	int8_t result;
+	rc = configctl_set_int8(ctx, "hello/numbers/number_8", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_int8(ctx, "hello/numbers/number_8", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2,  (int) result);
+}
+
+static void test_set_int_16()
+{
+	int rc;
+	int16_t result;
+	rc = configctl_set_int16(ctx, "hello/numbers/number_16", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_int16(ctx, "hello/numbers/number_16", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2, result);
+}
+
+static void test_set_int_32()
+{
+	int rc;
+	int32_t result;
+	rc = configctl_set_int32(ctx, "hello/numbers/number_32", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_int32(ctx, "hello/numbers/number_32", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2, result);
+}
+
+static void test_set_int_64()
+{
+	int rc;
+	int64_t result;
+	rc = configctl_set_int64(ctx, "hello/numbers/number_64", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_int64(ctx, "hello/numbers/number_64", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2, result);
+}
+
+static void test_set_uint_8()
+{
+	int rc;
+	uint8_t result;
+	rc = configctl_set_uint8(ctx, "hello/numbers/number_u8", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_uint8(ctx, "hello/numbers/number_u8", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2,  (int) result);
+}
+
+static void test_set_uint_16()
+{
+	int rc;
+	uint16_t result;
+	rc = configctl_set_uint16(ctx, "hello/numbers/number_u16", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_uint16(ctx, "hello/numbers/number_u16", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2, result);
+}
+
+static void test_set_uint_32()
+{
+	int rc;
+	uint32_t result;
+	rc = configctl_set_uint32(ctx, "hello/numbers/number_u32", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_uint32(ctx, "hello/numbers/number_u32", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2, result);
+}
+
+static void test_set_uint_64()
+{
+	int rc;
+	uint64_t result;
+	rc = configctl_set_uint64(ctx, "hello/numbers/number_u64", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_uint64(ctx, "hello/numbers/number_u64", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2, result);
+}
+
+static void test_set_new_int_8()
+{
+	int rc;
+	int8_t result;
+	rc = configctl_set_int8(ctx, "hello/numbers/new_number_8", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_int8(ctx, "hello/numbers/new_number_8", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2,  (int) result);
+}
+
+static void test_set_new_int_16()
+{
+	int rc;
+	int16_t result;
+	rc = configctl_set_int16(ctx, "hello/numbers/new_number_16", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_int16(ctx, "hello/numbers/new_number_16", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2, result);
+}
+
+static void test_set_new_int_32()
+{
+	int rc;
+	int32_t result;
+	rc = configctl_set_int32(ctx, "hello/numbers/new_number_32", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_int32(ctx, "hello/numbers/new_number_32", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2, result);
+}
+
+static void test_set_new_int_64()
+{
+	int rc;
+	int64_t result;
+	rc = configctl_set_int64(ctx, "hello/numbers/new_number_64", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_int64(ctx, "hello/numbers/new_number_64", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2, result);
+}
+
+static void test_set_new_uint_8()
+{
+	int rc;
+	uint8_t result;
+	rc = configctl_set_uint8(ctx, "hello/numbers/new_number_u8", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_uint8(ctx, "hello/numbers/new_number_u8", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2,  (int) result);
+}
+
+static void test_set_new_uint_16()
+{
+	int rc;
+	uint16_t result;
+	rc = configctl_set_uint16(ctx, "hello/numbers/new_number_u16", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_uint16(ctx, "hello/numbers/new_number_u16", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2, result);
+}
+
+static void test_set_new_uint_32()
+{
+	int rc;
+	uint32_t result;
+	rc = configctl_set_uint32(ctx, "hello/numbers/new_number_u32", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_uint32(ctx, "hello/numbers/new_number_u32", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2, result);
+}
+
+static void test_set_new_uint_64()
+{
+	int rc;
+	uint64_t result;
+	rc = configctl_set_uint64(ctx, "hello/numbers/new_number_u64", 2);
+	if (rc)
+		fail();
+
+	rc = configctl_get_uint64(ctx, "hello/numbers/new_number_u64", &result);
+	if (rc)
+		fail();
+
+	assert_int_equal(2, result);
 }
 
 
@@ -152,6 +391,22 @@ int main(void)
 		cmocka_unit_test_setup_teardown(test_set_existing_leaf_foo_string, setup_f, teardown_f),
 		cmocka_unit_test_setup_teardown(test_set_existing_bar_int, setup_f, teardown_f),
 		cmocka_unit_test_setup_teardown(test_set_leaf_number8_int, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_int_8, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_int_16, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_int_32, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_int_64, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_uint_8, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_uint_16, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_uint_32, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_uint_64, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_new_int_8, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_new_int_16, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_new_int_32, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_new_int_64, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_new_uint_8, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_new_uint_16, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_new_uint_32, setup_f, teardown_f),
+		cmocka_unit_test_setup_teardown(test_set_new_uint_64, setup_f, teardown_f),
 	};
 	return cmocka_run_group_tests(tests, NULL, NULL);
 }
