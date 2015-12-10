@@ -35,11 +35,11 @@ struct configctl {
 
 	struct ly_ctx *libyang;
 	struct lyd_node *root;
-	struct lys_module *model;
+	const struct lys_module *model;
 
 	char *config;
 	size_t len_config;
-	char *schema;
+	const char *schema;
 	size_t len_schema;
 };
 

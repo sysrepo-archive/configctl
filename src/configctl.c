@@ -430,7 +430,7 @@ int configctl_commit(struct configctl *ctx)
 		__debug("can't open output file %s!\n", ctx->config_file);
 	}
 
-	lyd_print(fp, ctx->root, LYD_XML);
+	lyd_print_file(fp, ctx->root, LYD_XML);
 
 	fclose(fp);
 

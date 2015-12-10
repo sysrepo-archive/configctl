@@ -101,12 +101,12 @@ int configctl_validate(struct configctl *ctx, char *config)
 		return -1;
 
 	if (!ctx->model)
-		ctx->model = lys_parse(ctx->libyang, ctx->schema, ctx->yang_format);
+		ctx->model = lys_parse_data(ctx->libyang, ctx->schema, ctx->yang_format);
 
 	if (ctx->root)
 		lyd_free(ctx->root);
 
-	ctx->root = lyd_parse(ctx->libyang, config, ctx->in_format, LYD_OPT_STRICT);
+	ctx->root = lyd_parse_data(ctx->libyang, config, ctx->in_format, LYD_OPT_STRICT);
 
 	if (ctx->root == NULL) {
 		__debug("Failed to parse data.");
