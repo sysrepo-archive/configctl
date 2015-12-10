@@ -32,24 +32,26 @@ int main(int argc, char **argv)
 
 	printf("hello/foo: '%s'\n", result_string);
 
-	result_int32 = configctl_get_int32(ctx, "hello/bar");
-	printf("hello/bar: '%d'\n", result_int32);
+	rc = configctl_get_int32(ctx, "hello/bar", &result_int32);
+	if (!rc)
+		printf("hello/bar: '%d'\n", result_int32);
 
 	rc = configctl_set_int32(ctx, "hello/bar", 50);
 	if (rc) {
-        printf("error in configctl_set_int32()\n");
-        return -1;
-    }
+		printf("error in configctl_set_int32()\n");
+		return -1;
+	}
 
-    result_int32 = configctl_get_int32(ctx, "hello/bar");
-    if (result_int32 != 50) {
-        printf("error in configctl_get_int32()\n");
+	rc = configctl_get_int32(ctx, "hello/bar", &result_int32);
+	if (!rc) {
+		if (result_int32 != 50) {
+			printf("error in configctl_get_int32()\n");
+		}
+	}
 
-    }
+	printf("hello/bar: '%d'\n", result_int32);
 
-    printf("hello/bar: '%d'\n", result_int32);
+	configctl_destroy(ctx);
 
-    configctl_destroy(ctx);
-
-    return 0;
+	return 0;
 }
