@@ -37,6 +37,9 @@ SET(SOURCES
 	src/functions.h
 	src/git.c
 	src/git.h
+)
+
+SET(MAIN
 	src/main.c
 )
 
@@ -77,7 +80,7 @@ IF(ENABLE_BUILD_TESTS)
 	ADD_SUBDIRECTORY(tests)
 ENDIF()
 
-ADD_EXECUTABLE(configctl ${SOURCES})
+ADD_EXECUTABLE(configctl ${SOURCES} ${MAIN})
 TARGET_LINK_LIBRARIES(configctl ${LIBS})
 INSTALL(TARGETS configctl RUNTIME DESTINATION bin)
 
